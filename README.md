@@ -1,0 +1,1 @@
+# LeetCode type Based solution 
