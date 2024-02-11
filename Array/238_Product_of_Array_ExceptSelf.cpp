@@ -36,3 +36,28 @@ rightcurrentProduct    24  12  4  1
 result                 24  13  8  6
 
 */
+// after minimize space complexity
+//solution two
+class Solution {
+public:
+    std::vector<int> productExceptSelf(std::vector<int>& nums) {
+        int n = nums.size();
+        std::vector<int> ans(n, 1);
+        int curr = 1;
+
+        // Compute the product of elements to the left of each index
+        for (int i = 0; i < n; ++i) {
+            ans[i] *= curr;
+            curr *= nums[i];
+        }
+
+        curr = 1;
+        // Compute the product of elements to the right of each index
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] *= curr;
+            curr *= nums[i];
+        }
+
+        return ans;
+    }
+};
